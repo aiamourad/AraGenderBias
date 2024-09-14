@@ -20,14 +20,31 @@ The data of the occupation bias is provided in CSV format with the following col
 #### Bias Projection Calculation
 
 The projection (Direct Bias) is calculated using the following equation:
-$DirectBias = |cos(female_occupation, gender_direction)| - |cos(male_occupation, gender_direction)|$
-
-                                Where:
-- `female_occupation` is the vector for the female version of the occupation
-- `male_occupation` is the vector for the male version of the occupation
-- `gender_direction` is the learned gender direction in the embedding space
+$\begin{eqnarray} 
+DirectBias= |cos(\overrightarrow{w_m}, \vec{d_g})|- |cos(\overrightarrow{w_f}, \vec{d_g})|
+\end{eqnarray}$
 
 A positive value indicates bias towards males, while a negative value indicates bias towards females.
+
+### WEAT Tests 
+The differential association `s` between the target sets and the attribute sets is calculated as follows:
+\begin{eqnarray} 
+s(X, Y, A, B)
+= \sum\limits_{\vec x \in X}{s(\vec x, A, B)} - \sum\limits_{\vec y \in Y}{s(\vec y, A, B)}
+\end{eqnarray}
+
+And the Cohen's effect size `d` as follows: 
+
+\begin{eqnarray} 
+\mathnormal{d}= \frac{mean_{\vec x \in X}{s(\vec x, A, B)} - mean_{\vec y \in Y}{s(\vec y, A, B)}}{std-dev_{w \in X \cup Y}s(w, A, B)}
+\end{eqnarray}
+
+This statistics file contains results from various Word Embedding Association Tests (WEAT) applied to non-disentangled and disentangled word embeddings. 
+The dataset consists of: 
+- `s`: A float representing a specific test's association strength.
+- `d`: A float representing the effect size statistic.
+- `p`: A float representing the p-value, indicating statistical significance.
+- `test`: A string describing the word sets used in each WEAT test (e.g., flower-insect, career-family).
 
 ## Datasets
 
@@ -40,19 +57,3 @@ The statistics are derived from multiple Arabic corpora:
 ## Methodology
 
 The bias values were calculated using adapted versions of the Direct Bias method and Word Embedding Association Test (WEAT), tailored for the Arabic language. The data also includes results after grammatical gender disentanglement.
-
-## Usage
-
-This data can be used to:
-
-- Analyze trends in gender bias for various occupations over time
-- Compare gender bias across different Arabic-language sources
-- Visualize gender bias in Arabic word embeddings
-- Study the effects of grammatical gender on bias measurements
-
-## Citation
-
-If you use this data in your research, please cite the original paper:
-
-[Insert citation information here]
-
