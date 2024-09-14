@@ -17,25 +17,12 @@ The data of the occupation bias is provided in CSV format with the following col
 - `reshaped_labels`: The combined occupation term in reshaped Arabic text
 - `color`: An RGBA color value representing the bias visually
 
-#### Bias Projection Calculation
-
-The projection (Direct Bias) is calculated using the following equation:
-$DirectBias= |cos(\overrightarrow{w_m}, \vec{d_g})|- |cos(\overrightarrow{w_f}, \vec{d_g})|$
-
-A positive value indicates bias towards males, while a negative value indicates bias towards females.
-
 ### WEAT Tests 
-The differential association `s` between the target sets and the attribute sets is calculated as follows:
-$ s(X, Y, A, B) = \sum\limits_{\vec x \in X}{s(\vec x, A, B)} - \sum\limits_{\vec y \in Y}{s(\vec y, A, B)}$
-
-And the Cohen's effect size `d` as follows: 
-
-$ \mathnormal{d}= \frac{mean_{\vec x \in X}{s(\vec x, A, B)} - mean_{\vec y \in Y}{s(\vec y, A, B)}}{std-dev_{w \in X \cup Y}s(w, A, B)} $
 
 This statistics file contains results from various Word Embedding Association Tests (WEAT) applied to non-disentangled and disentangled word embeddings. 
 The dataset consists of: 
 - `s`: A float representing a specific test's association strength.
-- `d`: A float representing the effect size statistic.
+- `d`: A float representing the Cohen's effect size statistic.
 - `p`: A float representing the p-value, indicating statistical significance.
 - `test`: A string describing the word sets used in each WEAT test (e.g., flower-insect, career-family).
 
