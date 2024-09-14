@@ -20,24 +20,17 @@ The data of the occupation bias is provided in CSV format with the following col
 #### Bias Projection Calculation
 
 The projection (Direct Bias) is calculated using the following equation:
-$\begin{eqnarray} 
-DirectBias= |cos(\overrightarrow{w_m}, \vec{d_g})|- |cos(\overrightarrow{w_f}, \vec{d_g})|
-\end{eqnarray}$
+$DirectBias= |cos(\overrightarrow{w_m}, \vec{d_g})|- |cos(\overrightarrow{w_f}, \vec{d_g})|$
 
 A positive value indicates bias towards males, while a negative value indicates bias towards females.
 
 ### WEAT Tests 
 The differential association `s` between the target sets and the attribute sets is calculated as follows:
-\begin{eqnarray} 
-s(X, Y, A, B)
-= \sum\limits_{\vec x \in X}{s(\vec x, A, B)} - \sum\limits_{\vec y \in Y}{s(\vec y, A, B)}
-\end{eqnarray}
+$ s(X, Y, A, B) = \sum\limits_{\vec x \in X}{s(\vec x, A, B)} - \sum\limits_{\vec y \in Y}{s(\vec y, A, B)}$
 
 And the Cohen's effect size `d` as follows: 
 
-\begin{eqnarray} 
-\mathnormal{d}= \frac{mean_{\vec x \in X}{s(\vec x, A, B)} - mean_{\vec y \in Y}{s(\vec y, A, B)}}{std-dev_{w \in X \cup Y}s(w, A, B)}
-\end{eqnarray}
+$ \mathnormal{d}= \frac{mean_{\vec x \in X}{s(\vec x, A, B)} - mean_{\vec y \in Y}{s(\vec y, A, B)}}{std-dev_{w \in X \cup Y}s(w, A, B)} $
 
 This statistics file contains results from various Word Embedding Association Tests (WEAT) applied to non-disentangled and disentangled word embeddings. 
 The dataset consists of: 
