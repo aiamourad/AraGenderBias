@@ -1,10 +1,11 @@
-# Arabic Occupation Gender Bias Statistics
+# Arabic Gender Bias Statistics
 
-This repository contains statistics on gender bias in Arabic word embeddings for various occupations across different years and datasets.
+This repository contains statistics on gender bias in Arabic word embeddings for various occupations using Direct Bias and WEAT tests across different years and datasets.
 
 ## Data Description
 
-The data is provided in CSV format with the following columns:
+### Direct Bias 
+The data of the occupation bias is provided in CSV format with the following columns:
 
 - `projection`: The bias projection value
 - `year`: The year of the data (for time series datasets)
@@ -16,7 +17,7 @@ The data is provided in CSV format with the following columns:
 - `reshaped_labels`: The combined occupation term in reshaped Arabic text
 - `color`: An RGBA color value representing the bias visually
 
-## Bias Projection Calculation
+#### Bias Projection Calculation
 
 The projection (Direct Bias) is calculated using the following equation:
 $DirectBias = |cos(female_occupation, gender_direction)| - |cos(male_occupation, gender_direction)|$
