@@ -1,10 +1,11 @@
-# Arabic Occupation Gender Bias Statistics
+# Arabic Gender Bias Statistics
 
-This repository contains statistics on gender bias in Arabic word embeddings for various occupations across different years and datasets.
+This repository contains statistics on gender bias in Arabic word embeddings for various occupations using Direct Bias and WEAT tests across different years and datasets.
 
 ## Data Description
 
-The data is provided in CSV format with the following columns:
+### Direct Bias 
+The data of the occupation bias is provided in CSV format with the following columns:
 
 - `projection`: The bias projection value
 - `year`: The year of the data (for time series datasets)
@@ -16,17 +17,14 @@ The data is provided in CSV format with the following columns:
 - `reshaped_labels`: The combined occupation term in reshaped Arabic text
 - `color`: An RGBA color value representing the bias visually
 
-## Bias Projection Calculation
+### WEAT Tests 
 
-The projection (Direct Bias) is calculated using the following equation:
-$DirectBias = |cos(female_occupation, gender_direction)| - |cos(male_occupation, gender_direction)|$
-
-                                Where:
-- `female_occupation` is the vector for the female version of the occupation
-- `male_occupation` is the vector for the male version of the occupation
-- `gender_direction` is the learned gender direction in the embedding space
-
-A positive value indicates bias towards males, while a negative value indicates bias towards females.
+This statistics file contains results from various Word Embedding Association Tests (WEAT) applied to non-disentangled and disentangled word embeddings. 
+The dataset consists of: 
+- `s`: A float representing a specific test's association strength.
+- `d`: A float representing the Cohen's effect size statistic.
+- `p`: A float representing the p-value, indicating statistical significance.
+- `test`: A string describing the word sets used in each WEAT test (e.g., flower-insect, career-family).
 
 ## Datasets
 
@@ -39,19 +37,3 @@ The statistics are derived from multiple Arabic corpora:
 ## Methodology
 
 The bias values were calculated using adapted versions of the Direct Bias method and Word Embedding Association Test (WEAT), tailored for the Arabic language. The data also includes results after grammatical gender disentanglement.
-
-## Usage
-
-This data can be used to:
-
-- Analyze trends in gender bias for various occupations over time
-- Compare gender bias across different Arabic-language sources
-- Visualize gender bias in Arabic word embeddings
-- Study the effects of grammatical gender on bias measurements
-
-## Citation
-
-If you use this data in your research, please cite the original paper:
-
-[Insert citation information here]
-
