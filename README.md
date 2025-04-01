@@ -56,5 +56,5 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 If you use this code or the results in your research, please cite our paper:
 
-[Paper citation to be added]
+Mourad A, Abu Salem FK, Elbassuoni S (2025) Detecting gender bias in Arabic text through word embeddings. PLoS ONE 20(3): e0319301. https://doi.org/10.1371/journal.pone.0319301
 
